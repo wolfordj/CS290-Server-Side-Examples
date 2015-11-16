@@ -22,11 +22,16 @@ app.get('/count',function(req,res){
 app.post('/count',function(req,res){
   var context = {};
   if(req.body.command === "resetCount"){
-    req.session.count = 0;
+    //req.session.count = 0;
+    req.session.destroy();
   } else {
     context.err = true;
   }
-  context.count = req.session.count || 0;
+  if(req.session){
+    context.count = req.session.count;
+  } else {
+    context.count = 0;
+  }
   req.session.count = context.count + 1;
   res.render('counter', context);
 });

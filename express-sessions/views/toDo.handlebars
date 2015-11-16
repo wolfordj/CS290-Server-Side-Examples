@@ -1,19 +1,19 @@
 <h1>Hello {{name}} Here is your To Do List!</h1>
 <h2>You have {{toDoCount}} items on your to do list.</h2>
 <form method="post">
-	<input type="text" name="name" id="toDoName">
-	<input type="submit" name="Add Item" value="Add Item">
+  <input type="text" name="name" id="toDoName">
+  <input type="submit" name="Add Item" value="Add Item">
 </form>
 {{#if toDo}}
 <ul>
-	{{#each toDo}}
-	<li>
-		<h3>{{this.name}}</h3>
-		<form method="post">
-			<input type="hidden" name="id" value="{{this.id}}">
-			<input type="submit" name="Done" value="Mark as Done">
-		</form>
-	</li>
-	{{/each}}
+  {{#each toDo}}
+  <li>
+    <h3>{{this.name}}</h3>
+    <form method="post">
+      <input type="hidden" name="id" value="{{this.id}}">
+      <input type="submit" name="Done" value="Mark as Done">
+    </form>
+  </li>
+  {{/each}}
 </ul>
 {{/if}}
